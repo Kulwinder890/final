@@ -13,7 +13,7 @@ class usermodel extends model {
         $u_pass = htmlentities($password);
         $sql = "SELECT 'name' , 'last_name, 'email' 'password_hash' FROM 'bloggers' WHERE email =?";
         $stmt = $this-> db->prepare($sql);
-        $count -> execute(ARRAY($u_name));
+        $count-> execute(ARRAY($u_name));
         $row = $stmt -> fetch();
         $password_hash = $row[2];
         $is_auth = false;

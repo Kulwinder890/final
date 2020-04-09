@@ -17,23 +17,11 @@ abstract class Controller {
         $this->router();
 
     }
-
+  
     private function router () {
-        
-        if (class_exists($this->route[2])) {
-            
-            if ($this->args >= 4) {
-                if (method_exists($this, $this->route[3])) {
-                    $this->uriCaller(3, 4);
-                } else {
-                    $this->uriCaller(0, 3);
-                }
-            } else {
-                $this->uriCaller(0, 3);
-            }
-
-        } else {
-
+       
+        if (class_exists($this->route[1])) {
+           
             if ($this->args >= 3) {
                 if (method_exists($this, $this->route[2])) {
                     $this->uriCaller(2, 3);
@@ -43,10 +31,54 @@ abstract class Controller {
             } else {
                 $this->uriCaller(0, 2);
             }
-
+ 
+        } else {
+ 
+            if ($this->args >= 2) {
+                if (method_exists($this, $this->route[1])) {
+                    $this->uriCaller(1, 2);
+                } else {
+                    $this->uriCaller(0, 1);
+                }
+            } else {
+                $this->uriCaller(0, 1);
+            }
+ 
         }
-
+ 
     }
+
+
+
+    // private function router () {
+        
+    //     if (class_exists($this->route[2])) {
+            
+    //         if ($this->args >= 4) {
+    //             if (method_exists($this, $this->route[3])) {
+    //                 $this->uriCaller(3, 4);
+    //             } else {
+    //                 $this->uriCaller(0, 3);
+    //             }
+    //         } else {
+    //             $this->uriCaller(0, 3);
+    //         }
+
+    //     } else {
+
+    //         if ($this->args >= 3) {
+    //             if (method_exists($this, $this->route[2])) {
+    //                 $this->uriCaller(2, 3);
+    //             } else {
+    //                 $this->uriCaller(0, 2);
+    //             }
+    //         } else {
+    //             $this->uriCaller(0, 2);
+    //         }
+
+    //     }
+
+    // }
 
     private function uriCaller ($method, $param) {
 
