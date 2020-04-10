@@ -1,6 +1,5 @@
 <?php
 
- require_once(ROOT . "/private/core/classes/controller.php");
 
 class test extends Controller {
 
