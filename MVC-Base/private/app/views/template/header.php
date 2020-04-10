@@ -8,5 +8,12 @@
         <link rel="stylesheet" href="/public/css/app.css">
     </head>
     <header>
-    Heading is this
+    <h1> BLOG SPACE</h1>
+    <style>
+    h1{
+    text-align: center;
+    color: red;
+    
+}
+</style>
     </header>

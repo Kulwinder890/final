@@ -6,10 +6,11 @@
         public $db;
 
         function configure() {
-            require(ROOT . "/private/core/config/database.php");
+            require("private/core/config/database.php");
         }
+        
          function install(){
-            if (isset($this->config["databse"])) {
+            if (isset($this->config["database"])) {
                 try {
                     $dsn =$this->config["database"]["driver"] .
                         ":host=" . $this->config["database"]["dbhost"] .

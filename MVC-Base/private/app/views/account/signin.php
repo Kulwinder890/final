@@ -1,4 +1,4 @@
-<form method="POST" action ="test/user">
+<form method="POST" action ="account/user">
 <h1> USER SIGN IN</h1>
 <input type ="hidden" name="csrf" value ="<?php echo($csrf)?>">
 <label for = "username"> EMAIL </label>

@@ -1,7 +1,7 @@
 <?php
 
 
-class test extends Controller {
+class account extends Controller {
 
     function __construct() {
         parent::__construct();
@@ -12,10 +12,10 @@ class test extends Controller {
         $is_auth = isset($_SESSION["username"]);
         if($is_auth)
         {
-            $this->view("test/user");
+            $this->view("account/user");
         }
         else{
-            $this->view("test/nouser");
+            $this->view("account/nouser");
         }
         
         $this->view("template/footer");
@@ -24,6 +24,7 @@ class test extends Controller {
     
     function signin()
     {
+       
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             $_POST_csrf = htmlentities($_POST["csrf"]);
             $_cook_csrf = htmlentities($_COOKIE["csrf"]);
@@ -34,9 +35,11 @@ class test extends Controller {
             $u_name = $_POST["username"];
             $u_pass = $_POST["password"];
         }
-        $auth = $this->usermodel->authorised();
+        $auth = $this->usermodel->authorised('kulwinderghuman100@gmail.com, 123456');
         if($auth){
-            header("location: /test/");
+            header("location: /account/user");
+           
+          
         }
     else{
              echo("not authentiacted");
@@ -48,16 +51,17 @@ class test extends Controller {
         $_SESSION['csrf'] = $csrf;
         setcookie("csrf", $csrf);
         $_COOKIE['csrf'] = $csrf;
-        $this-> view("test/signin", array("csrf" =>$csrf));
+        $this-> view("account/signin", array("csrf" =>$csrf));
     }
+          $this->view("template/footer");
 }
 
     function signout(){
         session_unset();
-        $_SESSION["name"] = "";
+        //$_SESSION["name"] = "";
          session_destroy();
-         $_SESSION= array();
-         //header("location: /test/");
+         $_SESSION= ARRAY();
+         header("location: /account/signin");
     }
 }
 ?>
