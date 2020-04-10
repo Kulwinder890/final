@@ -45,7 +45,7 @@ class test extends Controller {
         }
     else{
         $csrf = htmlentities(random_int(10000, 10000000));
-        echo($csrf);
+        //echo($csrf);
         $_SESSION['csrf'] = $csrf;
         setcookie("csrf", $csrf);
         $_COOKIE['csrf'] = $csrf;
