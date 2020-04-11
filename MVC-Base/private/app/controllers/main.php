@@ -9,7 +9,8 @@ class main extends Controller {
      * http://localhost/
      */
     function Index () {
-
+        $pass= password_hash("98765", PASSWORD_DEFAULT);
+        echo($pass);
        $this->view("template/header");
         $this->view("main/index");
        $this->view("template/footer");

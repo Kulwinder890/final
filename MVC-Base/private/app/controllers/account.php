@@ -35,11 +35,9 @@ class account extends Controller {
             $u_name = $_POST["username"];
             $u_pass = $_POST["password"];
         }
-        $auth = $this->usermodel->authorised('kulwinderghuman100@gmail.com, 123456');
+        $auth = $this->usermodel->authorised($u_name,$u_pass);
         if($auth){
-            header("location: /account/user");
-           
-          
+            header("location: /account/user");        
         }
     else{
              echo("not authentiacted");

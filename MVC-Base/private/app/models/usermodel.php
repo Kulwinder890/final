@@ -8,20 +8,20 @@ class usermodel extends model {
         parent::__construct();
     }
 
-    function authorised ($usermame , $password) {
-        $u_name = htmlentities($usermame);
+    function authorised($username , $password) {
+        $u_name = htmlentities($username);
         $u_pass = htmlentities($password);
 
         $sql = "SELECT 'first_name', 'last_name, password_hash' FROM 'bloggers' WHERE email =? ";
         $stmt = $this->db->prepare($sql);
-        $count= $stmt->execute(ARRAY($u_name));
+        $count= $stmt->execute(Array($u_name));
         $row = $stmt->fetch();
         $password_hash = $row[2];
         $is_auth = false;
         if(isset($password_hash)){
             $is_auth = password_verify($u_pass, $password_hash);
         if($is_auth){
-            $_SESSION['first_name'] = $row[0];
+           echo( $_SESSION['first_name'] = $row[0]);
             $_SESSION['last_name'] = $row[1];
             $_SESSION['username'] = $u_name;
 
