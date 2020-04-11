@@ -7,6 +7,6 @@ CREATE TABLE bloggers (
     bio TEXT NOT NULL ,
     publish_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
     online_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
-    blog_title VARCHAR NOT NULL ,
+    blog_title VARCHAR NOT NULL,
 );
     Insert into bloggers(email, password_hash,first_name, last_name, bio,blog_title) values ("maninderghuman.com", "$2y$10$xIjSS..XLdoi7koICdnzd.nw6UHdOOWII70lzJnulSLC0mT.fVxEy","mani" , "ghuman", "student", "tips and tricks");

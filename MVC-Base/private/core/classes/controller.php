@@ -63,7 +63,7 @@ abstract class controller {
     abstract function Index ();
 
     function model ($path) {
-        $path = $path;
+        //$path = $path;
 
         $class = explode('/', $path);
         $class = $class[count($class)-1];

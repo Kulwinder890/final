@@ -24,42 +24,41 @@ class account extends Controller {
     
     function signin()
     {
-       
+        
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             $_POST_csrf = htmlentities($_POST["csrf"]);
             $_cook_csrf = htmlentities($_COOKIE["csrf"]);
             $csrf = $_SESSION["csrf"];
+
             if($csrf == $_POST_csrf && $csrf == $_cook_csrf)
             {
-            $this ->model("usermodel");
+            $this ->model("userModel");
             $u_name = $_POST["username"];
             $u_pass = $_POST["password"];
-        }
-        $auth = $this->usermodel->authorised($u_name,$u_pass);
+        $auth = $this->userModel->authorised($u_name,$u_pass);
         if($auth){
-            header("location: /account/user");        
+            header("location: /account/");        
         }
     else{
-             echo("not authentiacted");
+             echo("not authenticated");
          }
         }
+    }
     else{
         $csrf = htmlentities(random_int(10000, 10000000));
-        //echo($csrf);
         $_SESSION['csrf'] = $csrf;
         setcookie("csrf", $csrf);
         $_COOKIE['csrf'] = $csrf;
         $this-> view("account/signin", array("csrf" =>$csrf));
     }
-          $this->view("template/footer");
 }
 
     function signout(){
         session_unset();
-        //$_SESSION["name"] = "";
+        $_SESSION["username"] = "";
          session_destroy();
          $_SESSION= ARRAY();
-         header("location: /account/signin");
+         header("location: /account/");
     }
 }
 ?>
