@@ -25,8 +25,6 @@ class blog extends Controller {
        $this->view("blog/header", $post);
         $this->view("blog/post", $post);
        $this->view("template/footer");
-
-
     }
 
     function Create(){
