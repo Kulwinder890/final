@@ -9,12 +9,13 @@ class userModel extends model {
     function authorised($username , $password) {
         $u_name = htmlentities($username);
         $u_pass = htmlentities($password);
-
-        $sql = "SELECT 'first_name', 'last_name', 'password_hash' FROM 'bloggers' WHERE email =? ";
+//echo($u_name);
+        $sql = "SELECT `first_name`, `last_name`, `password_hash` FROM `bloggers` WHERE email =? ";
         $stmt = $this->db->prepare($sql);
         $count= $stmt->execute(Array($u_name));
         $row = $stmt->fetch();
         $password_hash = $row[2];
+        //echo($password_hash);
         $is_auth = false;
         if(isset($password_hash)){
             $is_auth = password_verify($u_pass, $password_hash);
