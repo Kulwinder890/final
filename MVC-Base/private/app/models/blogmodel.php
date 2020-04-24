@@ -31,6 +31,15 @@ function createPost($title,$blogger,$content){
 
 }
 
+// function updatePost($postId){
+//     $slug = (str_replace(" ","-", strtolower($title)).random_int(1000, 999999));
+//     $sql = "UPDATE posts set(slug, title, content, blogger) Where slug=?";
+//     $stmt = $this->db->prepare($sql);
+//     $stmt->execute(Array($slug, $title, $content, $blogger));
+//     return $slug;
+// }
+
+
 
 }
 ?>

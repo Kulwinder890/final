@@ -55,5 +55,15 @@ class blog extends Controller {
       }
 
     }
-}
+
+
+    //  function Update($postId){
+    //     $this->model("BlogModel");
+    //     $post = $this->BlogModel->getPostById($postId);
+    //    $this->view("blog/header", $post);
+    //     $this->view("blog/post", $post);
+    //    $this->view("template/footer");
+    // }
+
+    }
 ?>
