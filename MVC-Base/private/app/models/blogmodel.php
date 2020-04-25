@@ -8,7 +8,6 @@ class BlogModel extends model {
 
     function getAllPosts(){
         $sql = "SELECT `slug`, `title`, `blogger`, `post_date`  FROM posts";
-
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
