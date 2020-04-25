@@ -56,14 +56,42 @@ class blog extends Controller {
 
     }
 
+    function Update($postId){
+        $is_auth = isset($_SESSION["username"]);
+         if(!$is_auth){
+             
+                header("location: /blog");
+                return;
+         }
 
-    //  function Update($postId){
-    //     $this->model("BlogModel");
-    //     $post = $this->BlogModel->getPostById($postId);
-    //    $this->view("blog/header", $post);
-    //     $this->view("blog/post", $post);
-    //    $this->view("template/footer");
-    // }
+
+        if($_SERVER["REQUEST_METHOD"]=="POST"){
+            $slug = $_POST["slug"];
+            $title = $_POST["title"];
+            $content = $_POST["content"];
+            $blogger = $_POST["blogger"];
+            $this->model("BlogModel");
+            $slug=$this->BlogModel->UpdatePost($slug,$title,$blogger,$content);
+
+             header("location: /blog/read" .$slug);
+
+
+        }
+
+            else{
+        
+                $this->model("BlogModel");
+        $post = $this->BlogModel->getPostById($postId);
+        print_r($post);
+        $this->view("template/header");
+        $this->view("blog/update",$post);
+       $this->view("template/footer");
+      }
+
+    }
+
+
+    
 
     }
 ?>

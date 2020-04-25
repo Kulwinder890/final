@@ -32,7 +32,6 @@ class main extends Controller {
         
       }
      function register() {
-
           $this->view("template/header");
          $this->view("main/register");
            $this->view("template/footer");

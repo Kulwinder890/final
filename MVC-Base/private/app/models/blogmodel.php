@@ -16,7 +16,7 @@ class BlogModel extends model {
 
     function getPostById($postId){
 
-    $sql = "SELECT `title`, `content`, `blogger`, `post_date` FROM posts WHERE slug = ?";
+    $sql = "SELECT `title`,`slug`,`content`, `blogger`, `post_date` FROM posts WHERE slug = ?";
     $stmt = $this->db->prepare($sql);
     $stmt->execute(Array($postId));
     return $stmt->fetch();
@@ -28,18 +28,13 @@ function createPost($title,$blogger,$content){
     $stmt = $this->db->prepare($sql);
     $stmt->execute(Array($slug, $title, $content, $blogger));
     return $slug;
-
 }
 
-// function updatePost($postId){
-//     $slug = (str_replace(" ","-", strtolower($title)).random_int(1000, 999999));
-//     $sql = "UPDATE posts set(slug, title, content, blogger) Where slug=?";
-//     $stmt = $this->db->prepare($sql);
-//     $stmt->execute(Array($slug, $title, $content, $blogger));
-//     return $slug;
-// }
-
-
-
+function UpdatePost($slug,$title,$blogger,$content){
+    $upd_sql = "UPDATE posts set title = ? , content=?, blogger=? where slug =?";
+    $upd_stmt = $this->db->prepare($upd_sql);
+    $upd_stmt->execute(Array($slug, $title,$blogger,$content));
+    
+} 
 }
 ?>
