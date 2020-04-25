@@ -82,7 +82,7 @@ class blog extends Controller {
         
                 $this->model("BlogModel");
         $post = $this->BlogModel->getPostById($postId);
-        print_r($post);
+        //print_r($post);
         $this->view("template/header");
         $this->view("blog/update",$post);
        $this->view("template/footer");

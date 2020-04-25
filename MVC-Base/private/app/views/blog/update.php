@@ -10,5 +10,6 @@
 <br>
 <label for = "content"> Content </label>
 <textarea name="content" id="content"><?php echo($content)?></textarea>
+ <br>
  <input type ="submit" value="Update"/>
 </form>

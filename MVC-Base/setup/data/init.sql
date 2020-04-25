@@ -21,4 +21,4 @@ CREATE TABLE bloggers (
     FOREIGN KEY(blogger)
     REFERENCES bloggers(email)
 );
-Insert into posts(slug, title,content,blogger) values ("blog-a", "Post A", "<article><h2>Post a </h2><section><p>this is basic test atricle></p></section></article>", "maninderghuman.com");
+Insert into posts(slug, title,content,blogger) values ("blog-a", "Post A", "<article><h2>Post a</h2><section><p>this is basic test atricle></p></section></article>", "maninderghuman.com");
